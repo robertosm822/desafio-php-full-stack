@@ -87,3 +87,35 @@
 ```bash
     npm run serve
 ```
+
+## Testes com PHPUnit
+
+- Para realizar os testes será necessário executar os fakers em linha de comando para cadastro de exemplos de categorias e produtos ou cadastrar pelo front pelo menos 5 unidades:
+
+- Criado os primeiros testes:
+
+ ```bash
+    php artisan make:test CategoriesTest
+    php artisan make:test ProductTest
+ ```
+
+Criado as factories:
+
+```bash
+    php artisan make:factory CategoryFactory
+    php artisan make:factory ProductFactory
+```
+- Recarregar as configurações de classes:
+
+```bash
+    composer dump
+```
+
+- Usar o utilitário de linha de comando Artisan Tinker:
+
+```bash
+    php artisan tinker
+ 
+    Category::factory()->count(5)->create()
+    Product::factory()->count(10)->create()
+```
