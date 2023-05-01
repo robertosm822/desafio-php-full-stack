@@ -90,6 +90,8 @@
 
 ## Testes com PHPUnit
 
+- Entrar na pasta `/back-end/`.
+
 - Para realizar os testes será necessário executar os fakers em linha de comando para cadastro de exemplos de categorias e produtos ou cadastrar pelo front pelo menos 5 unidades:
 
 - Criado os primeiros testes:
