@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Config;
 use Tests\TestCase;
 class CategoriesTest extends TestCase
 {
-    /** @test */
+    /** @test @return void */
     public function listAllCategories()
     {
         $baseUrl = Config::get('app.url');
@@ -47,10 +49,10 @@ class CategoriesTest extends TestCase
 
     }
 
-    /** @test */
+    /** @test @return void */
     public function getCategoryById()
     {
-        $id = mt_rand(1, 5);
+        $id = mt_rand(1,5);
         $baseUrl = Config::get('app.url');
         $response = $this->withHeaders([
             'Accept' => 'application/json',
