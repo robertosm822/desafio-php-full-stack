@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Maio-2023 às 15:45
+-- Tempo de geração: 01-Maio-2023 às 20:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.1.17
 
@@ -39,10 +39,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Parafusos Sextavados', '2023-04-28 23:24:07', '2023-04-28 23:35:28'),
-(2, 'Porcas', '2023-04-28 23:24:15', '2023-04-28 23:24:15'),
-(3, 'Ferramentas Manuais', '2023-04-28 23:24:29', '2023-04-28 23:24:29'),
-(4, 'Ferramentas Eletricas', '2023-04-28 23:24:37', '2023-04-28 23:24:37');
+(1, 'Khalil Walsh', '2023-05-01 21:13:23', '2023-05-01 21:13:23'),
+(2, 'Lizeth Prosacco', '2023-05-01 21:13:23', '2023-05-01 21:13:23'),
+(3, 'Darrin Adams', '2023-05-01 21:13:23', '2023-05-01 21:13:23'),
+(4, 'Mrs. Jessica Kautzer', '2023-05-01 21:13:23', '2023-05-01 21:13:23'),
+(5, 'Dale Reinger', '2023-05-01 21:13:23', '2023-05-01 21:13:23');
 
 -- --------------------------------------------------------
 
@@ -77,12 +78,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_04_28_192315_create_categories_table', 1),
-(6, '2023_04_28_192331_create_products_table', 1);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(11, '2023_04_28_192315_create_categories_table', 1),
+(12, '2023_04_28_192331_create_products_table', 1);
 
 -- --------------------------------------------------------
 
@@ -133,8 +134,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Serra Manual StartRRet', '2023-04-29 01:11:27', '2023-04-29 01:27:27'),
-(2, 3, 'Martelo Tramontina', '2023-04-29 01:28:44', '2023-04-29 01:28:44');
+(1, 5, 'Animal Breeder', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(2, 4, 'Purchasing Manager', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(3, 3, 'Title Examiner', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(4, 1, 'Model Maker', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(5, 4, 'Lawn Service Manager', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(6, 5, 'Human Resources Assistant', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(7, 3, 'Spotters', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(8, 1, 'Producers and Director', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(9, 3, 'Structural Metal Fabricator', '2023-05-01 21:13:25', '2023-05-01 21:13:25'),
+(10, 1, 'Grips', '2023-05-01 21:13:25', '2023-05-01 21:13:25');
 
 -- --------------------------------------------------------
 
@@ -224,7 +233,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `personal_access_tokens`
@@ -236,7 +245,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `users`
