@@ -1,3 +1,8 @@
+## Como foi organizado o desafio
+
+- Decidiu-se dividir em pastas separadas o Back-end Laravel (PHP + MySQL) do Front-end Vue 3 (TypeScript):
+
+
 ## Instruções para execução
 
 - Executar o comando composer para baixar as depências do framework e projeto:
@@ -65,4 +70,20 @@
 
 ```bash
     php artisan serve
+```
+
+
+# Desafio Full Stack
+
+## Projeto Front-ent Vue
+- Entrar na pasta `/front-end/` e executar a instalação das depêndencias:
+
+```bash
+    npm install
+```
+
+### Executar o aplicativo Vue
+
+```bash
+    npm run serve
 ```
