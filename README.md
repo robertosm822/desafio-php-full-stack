@@ -138,3 +138,11 @@ Executar os Testes
     php artisan test
 ```
 
+## Referências de tecnologias
+
+- [GRID Bulma](https://bulma.io/documentation/overview/start/)
+- [Vue.JS V3](https://vuejs.org/guide/quick-start.html)
+- [Vue Router](https://v3.router.vuejs.org/guide/)
+- [Laravel v9](https://laravel.com/docs/9.x/releases)
+- [Repository Desing Pattern](https://kongulov.dev/blog/repository-pattern-in-laravel-php-design-pattern)
+- [PHPUnit](https://docs.phpunit.de/en/9.6/)
