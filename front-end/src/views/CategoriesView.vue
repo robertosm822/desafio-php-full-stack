@@ -47,7 +47,7 @@
                             <td>
                                 <div class="buttons are-small">
                                     <router-link class="button is-primary" :to="'/editCategory/' + item.id">Editar</router-link>
-                                    <button class="button is-danger">Apagar</button>
+                                    <button class="button is-danger" @click="deleteCategory(parseInt(item.id))" :to="item.id">Apagar</button>
                                 </div>
                             </td>
                         </tr>
@@ -84,18 +84,25 @@ export default defineComponent({
             //reload na tabela
             this.getData();
             const msgSend = `<div class="notification is-primary">
-                    <button class="delete"></button>
+                    <button onclick="closeMsg()" class="delete"></button>
                     Categoria cadastrado com sucesso!
                 </div>`;
             this.$emit('onsaveCategory',this.msg=msgSend);
         },
         async getData() {
             const res = await CategoryController.listAll();
-            this.listItems = res;
+            return this.listItems = res;
         },
-        closeDiv(){
-            this.$emit('onCloseDiv',this.msg='');
-            console.log('Fechando div');
+        deleteCategory(Id: number){
+            console.log('Apagar Category ID: '+Id);
+            //apagar pelo ID
+            CategoryController.deleteCategory(Id);
+            const msgSend = `<div class="notification is-primary">
+                    <button onclick="closeMsg()" class="delete"></button>
+                    Categoria apagada com sucesso!
+                </div>`;
+            this.$emit('onsaveCategory',this.msg=msgSend);
+            return this.getData();
         }
         
     },

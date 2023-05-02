@@ -57,7 +57,7 @@
                             <td>
                                 <div class="buttons are-small">
                                     <router-link class="button is-primary" :to="'/editProduct/' + item.id">Editar</router-link>
-                                    <button class="button is-danger">Apagar</button>
+                                    <button class="button is-danger" @click="deleteProduct(parseInt(item.id))" :to="item.id">Apagar</button>
                                 </div>
                             </td>
                         </tr>
@@ -114,6 +114,17 @@ export default defineComponent({
         closeDiv(){
             this.$emit('onCloseDiv',this.msg='');
             console.log('Fechando div');
+        },
+        deleteProduct(Id: number){
+            console.log('Apagar Category ID: '+Id);
+            //apagar pelo ID
+            ProductController.deleteProduct(Id);
+            const msgSend = `<div class="notification is-primary">
+                    <button onclick="closeMsg()" class="delete"></button>
+                    Produto apagada com sucesso!
+                </div>`;
+            this.$emit('onSaveProduct',this.msg=msgSend);
+            return this.getData();
         }
         
     },

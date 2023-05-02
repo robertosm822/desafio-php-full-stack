@@ -61,5 +61,16 @@ export default {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
+    },
+    deleteProduct(Id: number){
+        const requestOptions: any = {
+            method: 'DELETE',
+            redirect: 'follow'
+        };
+          
+        fetch("http://127.0.0.1:8000/api/products/"+Id, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
 }
