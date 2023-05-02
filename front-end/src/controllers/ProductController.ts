@@ -28,5 +28,38 @@ export default {
     },
     closeDiv(document: any){
         return document.getElementById('msg-send').innerHTML  = ''
+    },
+    getProductById(Id: number){
+        const requestOptions: any = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        
+        const product = fetch("http://localhost:8000/api/products/"+Id, requestOptions)
+        .then(response => response.json())
+        .then(result => result.data)
+        .catch(error => console.log('error', error));
+        return product;
+    },
+    async updateProduct(Id: number, NameCategory: string, categoryId: number){
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            "name": NameCategory,
+            "category_id": categoryId
+        });
+
+        const requestOptions: any = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8000/api/products/"+Id, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
 }

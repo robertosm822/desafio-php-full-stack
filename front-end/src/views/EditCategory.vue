@@ -6,9 +6,7 @@
                 <h2>Editar Categoria</h2>
                 <hr />
                 <form @submit.prevent="storeCategory">
-                    <div class="field">
-                        <strong>Cadastrar:</strong>
-                    </div>
+                    
                     <div class="field">
                         
                         <div v-html="msg" id="msg-send"></div>
@@ -59,7 +57,7 @@ export default defineComponent({
             CategoryController.updateCategory(this.categoryId, this.nameCategory);
             
             const msgSend = `<div class="notification is-primary">
-                    <button class="delete"></button>
+                    <button onclick="closeMsg()" class="delete"></button>
                     Categoria atualizada com sucesso!
                 </div>`;
             this.$emit('onsaveCategory',this.msg=msgSend);
@@ -68,7 +66,7 @@ export default defineComponent({
         async loadDataCategory(Id: number){
             //recuperar informacoes da categoria
             const categorydata: any = await CategoryController.getCategoryById(Id);
-            console.log(categorydata);
+            
             this.nameCategory =categorydata.name;
         }
     },

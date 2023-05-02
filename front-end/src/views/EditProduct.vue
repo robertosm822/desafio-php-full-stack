@@ -3,12 +3,10 @@
           
         <div class="box">
             <div class="column">
-                <h2>Produtos</h2>
+                <h2>Editar Produto</h2>
                 <hr />
-                <form @submit.prevent="saveProduct">
-                    <div class="field">
-                        <strong>Cadastrar:</strong>
-                    </div>
+                <form @submit.prevent="storeProduct">
+                    
                     <div class="field">
                         
                         <div v-html="msg" id="msg-send"></div>
@@ -41,35 +39,13 @@
                         </button>
                     </div>
                 </form>
-                <hr>
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in listItems" :key="item.id">
-                            <td>{{ item.id }}</td>
-                            <td>{{ item.name }}</td>
-                            <td>
-                                <div class="buttons are-small">
-                                    <router-link class="button is-primary" :to="'/editProduct/' + item.id">Editar</router-link>
-                                    <button class="button is-danger">Apagar</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table>
 
             </div>
         </div>
     </div>
     
 </template>
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -89,36 +65,31 @@ export default defineComponent({
         }
     },
     methods: {
-        saveProduct () {
-            if(this.categoryId !== 0){
-                ProductController.createProduct(this.nameProduct, this.categoryId);
-                //reload na tabela
-                this.getData();
-                const msgSend = `<div class="notification is-primary">
-                        <button class="delete"></button>
-                        Produto cadastrado com sucesso!
-                    </div>`;
-                this.$emit('onSaveProduct',this.msg=msgSend);
-            } else {
-                const msgSend = `<div class="notification is-danger">
-                        
-                        Categoria ID inválida.
-                    </div>`;
-                this.$emit('onCloseDiv',this.msg=msgSend);
-            } 
+        storeProduct(){
+            const Id: any = this.$route.params.id;
+            const productId = parseInt(Id);
+            ProductController.updateProduct(productId,this.nameProduct, this.categoryId );
+            
+            const msgSend = `<div class="notification is-primary">
+                    <button onclick="closeMsg()" class="delete"></button>
+                    Produto atualizada com sucesso!
+                </div>`;
+            this.$emit('onSaveProduct',this.msg=msgSend);
+            return '';
         },
-        async getData() {
-            const res = await ProductController.listAll();
-            this.listItems = res;
-        },
-        closeDiv(){
-            this.$emit('onCloseDiv',this.msg='');
-            console.log('Fechando div');
+        async loadDataProduct(Id: number){
+            //recuperar informacoes da categoria
+            const productdata: any = await ProductController.getProductById(Id);
+            
+            this.nameProduct =productdata.name;
         }
         
     },
     mounted() {
-        this.getData();
+        const Id: any = this.$route.params.id;
+        this.categoryId = parseInt(Id);
+        this.loadDataProduct(parseInt(Id));
+
         this.$emit('onSaveProduct', {
             msg: ''
         });
