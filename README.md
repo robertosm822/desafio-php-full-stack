@@ -87,6 +87,16 @@
 ```bash
     npm run serve
 ```
+- Lista de Categorias CRUD Vue 3:
+
+![image](https://user-images.githubusercontent.com/3953157/235576780-69eadc92-7a96-49d5-9447-f427ff770268.png)
+
+- Lista de Produtos CRUD Vue 3
+
+![image](https://user-images.githubusercontent.com/3953157/235576887-5a51bba5-148d-4316-bfa4-cfaf7d48c4d1.png)
+
+
+
 
 ## Testes com PHPUnit
 
