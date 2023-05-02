@@ -1,6 +1,7 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 import CategoriesView from '../views/CategoriesView.vue';
 import ProductsView from '../views/ProductsView.vue';
+import EditCategory from '../views/EditCategory.vue';
 //configurar os apontamentos das rotas
 const rotas: RouteRecordRaw[] = [
     {
@@ -12,6 +13,11 @@ const rotas: RouteRecordRaw[] = [
         path: '/products',
         name: 'Produtos',
         component: ProductsView
+    },
+    {
+        path: '/editCategory/:id',
+        name: 'Editar Categoria',
+        component: EditCategory
     },
 ];
 

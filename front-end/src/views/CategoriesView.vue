@@ -46,7 +46,7 @@
                             <td>{{ item.name }}</td>
                             <td>
                                 <div class="buttons are-small">
-                                    <button class="button is-primary">Editar</button>
+                                    <router-link class="button is-primary" :to="'/editCategory/' + item.id">Editar</router-link>
                                     <button class="button is-danger">Apagar</button>
                                 </div>
                             </td>

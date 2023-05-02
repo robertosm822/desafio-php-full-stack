@@ -26,6 +26,18 @@ export default {
             console.log(res);
         return res;
     },
+    getCategoryById(Id: number){
+        const requestOptions: any = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        
+        const category = fetch("http://localhost:8000/api/categories/"+Id, requestOptions)
+        .then(response => response.json())
+        .then(result => result.data)
+        .catch(error => console.log('error', error));
+        return category;
+    },
     async updateCategory(Id: number, NameCategory: string){
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
